@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "gitlab-bot"
+version = "0.1.0"
+description = ""
+authors = ["odges Pavel Bekrenev"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+aiogram = "^2.20"
+fastapi = "^0.75.1"
+uvicorn = "^0.17.6"
+uvloop = "^0.16.0"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
