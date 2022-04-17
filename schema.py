@@ -1,6 +1,6 @@
 from typing import Optional
 from pydantic import BaseModel
-from spec import EventType
+from spec import EventType, ActionType
 
 
 class UserAuthorEvent(BaseModel):
@@ -52,6 +52,11 @@ class ObjectEventAttributes(BaseModel):
     updated_by_id: Optional[int]
     description: Optional[str]
     url: Optional[str]
+
+    action: Optional[ActionType]
+
+    status: Optional[str]
+    ref: Optional[str]
 
 
 class RepositoryInfo(BaseModel):

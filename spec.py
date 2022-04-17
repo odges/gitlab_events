@@ -13,3 +13,15 @@ class EventType(AutoName):
     pipeline = auto()
     build = auto()
     deployment = auto()
+
+
+class ActionType(AutoName):
+    open = auto()
+    close = auto()
+    reopen = auto()
+    update = auto()
+    approved = auto()
+    unapproved = auto()
+    approval = auto()
+    unapproval = auto()
+    merge = auto()
