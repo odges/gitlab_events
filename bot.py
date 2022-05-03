@@ -1,13 +1,7 @@
-from aiogram import Bot
-from environs import Env
 import aiohttp
+from aiogram import Bot
 
-
-env = Env()
-env.read_env()
-
-TELEGRAM_BOT = env("TELEGRAM_BOT")
-CHAT_ID = env("CHAT_ID")
+from environment import TELEGRAM_BOT
 
 
 async def init_bot() -> Bot:

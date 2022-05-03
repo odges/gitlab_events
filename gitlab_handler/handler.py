@@ -1,12 +1,13 @@
-from spec import ActionType, EventType
-from schema import EventObjectModel
 from aiogram.utils.markdown import hlink, quote_html
+
+from gitlab_handler.custom_type import ActionType, EventType
+from schema import EventObjectModel
+from gitlab_handler.handler_errors import NotImplementedStatus
 
 
 class ProcessingEvent:
     def __init__(self, event: EventObjectModel) -> None:
         self._event = event
-        self.is_processed: bool = False
 
         self.message = self._event_to_message()
 
@@ -16,7 +17,6 @@ class ProcessingEvent:
             link = hlink("оставил комментарий", self._event.object_attributes.url)
             comment = quote_html(self._event.object_attributes.description)
             message_text = f"{author.name} {link} \n{comment}"
-            self.is_processed = True
             return message_text
 
         if self._event.event_type == EventType.merge_request:
@@ -34,11 +34,13 @@ class ProcessingEvent:
                 return None
             link = hlink(f"{text} мердж реквест", self._event.object_attributes.url)
             message_text = f"{author.name} {link}"
-            self.is_processed = True
             return message_text
 
         if self._event.object_kind == "pipeline":
             if self._event.object_attributes.status == "failed":
                 message_text = f"Пайплайн упал с ошибкой. Ветка - {self._event.object_attributes.ref}"
-                self.is_processed = True
                 return message_text
+
+        raise NotImplementedStatus(
+            f"{self._event.event_type} is not impleneted for current handler"
+        )

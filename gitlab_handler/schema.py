@@ -1,6 +1,8 @@
 from typing import Optional
+
 from pydantic import BaseModel
-from spec import EventType, ActionType
+
+from gitlab_handler.custom_type import ActionType, EventType
 
 
 class UserAuthorEvent(BaseModel):

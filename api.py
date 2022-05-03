@@ -1,15 +1,13 @@
-from fastapi import FastAPI
-from starlette.middleware.cors import CORSMiddleware
-from route import router
-import uvicorn
-
-DEBUG = True
-PROJECT_NAME = "gitlab-bot"
-VERSION = "0.0.1"
 import logging
+
+import uvicorn
 from fastapi import FastAPI, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
+from starlette.middleware.cors import CORSMiddleware
+
+from environment import DEBUG, PROJECT_NAME, VERSION
+from route import router
 
 app = FastAPI()
 

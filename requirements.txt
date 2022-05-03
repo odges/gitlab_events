@@ -1,0 +1,5 @@
+aiogram==2.20
+fastapi==0.75.1
+uvicorn==0.17.6
+uvloop==0.16.0
+environs==9.5.0
