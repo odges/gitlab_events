@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends
 from bot import init_bot
 from environment import CHAT_ID
 from gitlab_handler.handler import ProcessingEvent
-from schema import EventObjectModel
+from gitlab_handler.schema import EventObjectModel
 
 router = APIRouter()
 
