@@ -1,8 +1,8 @@
 from aiogram.utils.markdown import hlink, quote_html
 
 from gitlab_handler.custom_type import ActionType, EventType
-from gitlab_handler.schema import EventObjectModel
 from gitlab_handler.handler_errors import NotImplementedStatus
+from gitlab_handler.schema import EventObjectModel
 
 
 class ProcessingEvent:

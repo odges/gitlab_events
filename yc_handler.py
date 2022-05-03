@@ -3,8 +3,8 @@ import json
 from bot import init_bot
 from environment import CHAT_ID
 from gitlab_handler.handler import ProcessingEvent
-from gitlab_handler.schema import EventObjectModel
 from gitlab_handler.handler_errors import NotImplementedStatus
+from gitlab_handler.schema import EventObjectModel
 
 
 async def handler(event, context):
